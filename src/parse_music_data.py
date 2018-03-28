@@ -189,7 +189,6 @@ def create_country_artist_dict():
         '''
         for user in plays_dict[year]:
             # get the country the user belongs to
-            country_artist = dict()
             try:
                 country = user_dict[user]
             except KeyError:
@@ -229,7 +228,7 @@ def store_dict_pickle(file_name, dictionary):
         :type dictionary: dict
     """
 
-    with open('../output/dictionary/' + file_name + '.pkl', 'wb') as f:
+    with open('../data/dictionary/' + file_name + '.pkl', 'wb') as f:
         pickle.dump(dictionary, f, pickle.HIGHEST_PROTOCOL)
 
 
@@ -244,12 +243,29 @@ def load_dict_pickle(file_name):
     :rtype dict
     """
 
-    with open('../output/dictionary/' + file_name + '.pkl', 'rb') as f:
+    with open('../data/dictionary/' + file_name + '.pkl', 'rb') as f:
         dictionary =  pickle.load(f)
     return dictionary
+
+
+
+def print_country_artist_dict(country_artist, dict_name):
+    print(dict_name)
+    for country in country_artist:
+        print(country)
+
+    print("\n\n")
 
 
 # ------------ Main Section of File
 # create_user_country_dict()
 # create_plays_dict()
-create_country_artist_dict()
+#create_country_artist_dict()
+
+print_country_artist_dict(load_dict_pickle("2005_country_artist"), "2005_country_artist")
+print_country_artist_dict(load_dict_pickle("2006_country_artist"), "2006_country_artist")
+print_country_artist_dict(load_dict_pickle("2007_country_artist"), "2007_country_artist")
+print_country_artist_dict(load_dict_pickle("2008_country_artist"), "2008_country_artist")
+print_country_artist_dict(load_dict_pickle("2009_country_artist"), "2009_country_artist")
+print_country_artist_dict(load_dict_pickle("2010_country_artist"), "2010_country_artist")
+print_country_artist_dict(load_dict_pickle("2013_country_artist"), "2013_country_artist")
