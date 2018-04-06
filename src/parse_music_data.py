@@ -217,7 +217,7 @@ def create_country_artist_dict():
 '''
 
 
-def store_dict_pickle(file_name, dictionary):
+ def store_dict_pickle(file_name, dictionary):
     """
         Saves a dictionary to a pickle file
 
